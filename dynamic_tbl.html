@@ -77,7 +77,7 @@
 
 
 <br /><br /><br />
-
+<p>Sample table to Export using jsPDF</p>
 <table id="basic-table" border = 1>
     <thead>
     <tr>
@@ -162,7 +162,7 @@ localStorage.setItem("rowCnt", 1);
 
 	$(".addCF").click(function(){
 		var temp = "auto-"+localStorage.rowCnt;
-		$("#tblData").append('<tr valign="top"><td><input name='+temp+' title="type here"></td><td><input type="text" class="code" name="txtProdQty" value="" placeholder="Qty" /></td><td><img class="remCF" src="img/remove.png"></td></tr>');
+		$("#tblData").append('<tr valign="top"><td><input name='+temp+' title="type here"></td><td><input type="text" class="code" name="txtProdQty" value="" placeholder="Qty" /></td><td><img class="remCF" src="remove.png"></td></tr>');
 		localStorage.rowCnt = Number(localStorage.rowCnt)+1;
 		$( "input[name^='auto']" ).autocomplete({
 		source: availableTags,
