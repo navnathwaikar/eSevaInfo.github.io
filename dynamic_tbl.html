@@ -1,0 +1,259 @@
+<html>
+<head><title>Quatation</title>
+
+<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<style>
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+	}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+	</style>
+
+</head>
+<body>
+
+<div style="width:100%;">
+	<table class="form-table" id="tblData" border = 1>
+		<tr valign="top">
+			<th scope="row">Product</th>
+			<th scope="row">Qty</th>
+			<th scope="row">Action</th>
+		</tr>
+		<tr valign="top">
+			<td><input name="auto" title="type &quot;a&quot;"></td>
+			<td><input type="text" class="code" id="txtQty" name="txtProdQty" value="" placeholder="Qty" /> </td>
+			<td><img class="remCF" src="img/remove.png"></td>
+		</tr>
+		
+	</table>
+	<!--<a href="javascript:void(0);" class="addCF">Add</a>-->
+	<img class="addCF" src="img/plus.png">
+</div>
+
+<!--<ul id="icons" class="ui-widget ui-helper-clearfix">
+	<li class="ui-state-default ui-corner-all" title=".ui-icon-plusthick"><span class="ui-icon ui-icon-plusthick"></span></li>
+	<li class="ui-state-default ui-corner-all" title=".ui-icon-minus"><span class="ui-icon ui-icon-minus"></span></li>
+</ul>-->
+
+
+
+
+<br /><br /><br />
+
+<table id="basic-table" border = 1>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>IP-address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Donna</td>
+        <td>Moore</td>
+        <td>dmoore0@furl.net</td>
+        <td>China</td>
+        <td>211.56.242.221</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Janice</td>
+        <td>Henry</td>
+        <td>jhenry1@theatlantic.com</td>
+        <td>Ukraine</td>
+        <td>38.36.7.199</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Ruth</td>
+        <td>Wells</td>
+        <td>rwells2@constantcontact.com</td>
+        <td>Trinidad and Tobago</td>
+        <td>19.162.133.184</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Jason</td>
+        <td>Ray</td>
+        <td>jray3@psu.edu</td>
+        <td>Brazil</td>
+        <td>10.68.11.42</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Jane</td>
+        <td>Stephens</td>
+        <td>jstephens4@go.com</td>
+        <td>United States</td>
+        <td>47.32.129.71</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Adam</td>
+        <td>Nichols</td>
+        <td>anichols5@com.com</td>
+        <td>Canada</td>
+        <td>18.186.38.37</td>
+    </tr>
+    </tbody>
+</table>
+<br />
+<button onclick="fun('ABC','123123','java','20/09/2016','10');">Export to PDF</button>
+
+
+
+<!-- Load JS files -->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+
+<!--- JS PDF --->
+<script src="jspdf.js"></script>
+<script src="jspdf.autotable.js"></script>
+<script src="html2canvas.js"></script>
+
+<script type="Text/JavaScript">
+
+$(document).ready(function(){
+
+localStorage.setItem("rowCnt", 1);
+
+	$(".addCF").click(function(){
+		var temp = "auto-"+localStorage.rowCnt;
+		$("#tblData").append('<tr valign="top"><td><input name='+temp+' title="type here"></td><td><input type="text" class="code" name="txtProdQty" value="" placeholder="Qty" /></td><td><img class="remCF" src="img/remove.png"></td></tr>');
+		localStorage.rowCnt = Number(localStorage.rowCnt)+1;
+		$( "input[name^='auto']" ).autocomplete({
+		source: availableTags,
+		minLength: 3
+		});
+	});
+    $("#tblData").on('click','.remCF',function(){
+        $(this).parent().parent().remove();
+    });
+	
+});
+
+</script>
+
+<script type="text/javascript">
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$( "input[name^='auto']" ).autocomplete({
+	source: availableTags
+});
+
+
+
+	
+// Function Export to PDF
+        function fun(name,cellno,group,tdate,score){
+        	
+        	
+	        var doc = new jsPDF('p', 'pt');
+	    	doc.setFont("times");
+	    	doc.setFontSize(12);
+	    	doc.text(40, 30, "Result Details");
+	    	doc.text(450, 30, "Date");
+	    	doc.text(490, 30, tdate);
+	    	doc.setDrawColor(210,210,210);
+	    	doc.line(30, 45, 550, 45);
+	    	
+	    	doc.setFontSize(14);
+	    	doc.setTextColor(148,142,143);
+	    	doc.text(40, 70, "Name");
+	    	//doc.text(40, 90, "Contact");
+	    	
+	    	doc.setFontSize(14);
+	    	doc.setTextColor(41,45,40);
+	    	doc.text(120, 70, name);
+	    	//doc.text(120, 90, cellno);
+	    	
+	    	doc.setFontSize(14);
+	    	doc.setTextColor(148,142,143);
+	    	doc.text(340, 70, "Skills");
+	    	//doc.text(340, 90, "Score");
+	    	
+	    	doc.setFontSize(14);
+	    	doc.setTextColor(41,45,40);
+	    	doc.text(440, 70, group);
+	    	//doc.text(440, 90, score);
+	    	
+	    	doc.setDrawColor(210,210,210);
+	    	doc.line(30, 100, 550, 100);
+	    
+	    
+        	var res = doc.autoTableHtmlToJson(document.getElementById("basic-table"));
+        	doc.autoTable(res.columns, res.data, {margin: {top: 130}});
+        	
+        	doc.output("dataurlnewwindow");
+			
+        }	
+	
+</script>
+
+</body>
+</html>
