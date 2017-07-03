@@ -58,7 +58,7 @@
 			<th scope="row">Action</th>
 		</tr>
 		<tr valign="top">
-			<td><input name="auto" title="type &quot;a&quot;"></td>
+			<td><input name="auto" title="type &quot;a&quot;" placeholder="start typing"></td>
 			<td><input type="text" class="code" id="txtQty" name="txtProdQty" value="" placeholder="Qty" /> </td>
 			<td><img class="remCF" src="remove.png"></td>
 		</tr>
@@ -162,7 +162,7 @@ localStorage.setItem("rowCnt", 1);
 
 	$(".addCF").click(function(){
 		var temp = "auto-"+localStorage.rowCnt;
-		$("#tblData").append('<tr valign="top"><td><input name='+temp+' title="type here"></td><td><input type="text" class="code" name="txtProdQty" value="" placeholder="Qty" /></td><td><img class="remCF" src="remove.png"></td></tr>');
+		$("#tblData").append('<tr valign="top"><td><input name='+temp+' title="type here" placeholder="start typing"></td><td><input type="text" class="code" name="txtProdQty" value="" placeholder="Qty" /></td><td><img class="remCF" src="remove.png"></td></tr>');
 		localStorage.rowCnt = Number(localStorage.rowCnt)+1;
 		$( "input[name^='auto']" ).autocomplete({
 		source: availableTags,
