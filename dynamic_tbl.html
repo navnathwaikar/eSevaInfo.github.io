@@ -255,7 +255,8 @@ $( "input[name^='auto']" ).autocomplete({
         	var res = doc.autoTableHtmlToJson(document.getElementById("basic-table"));
         	doc.autoTable(res.columns, res.data, {margin: {top: 130}});
         	
-        	doc.output("dataurlnewwindow");
+        	//doc.output("dataurlnewwindow");
+		doc.save('jsPdf-table.pdf')
 			
         }	
 	
