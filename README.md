@@ -1,1 +1,2 @@
-# eSevaInfo.github.io 
+# Resposive Static website using HTML,CSS, JavaScript
+http://navnathwaikar.github.io/eSevaInfo.github.io/
